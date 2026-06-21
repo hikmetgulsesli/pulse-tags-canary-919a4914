@@ -1,0 +1,12 @@
+{
+  "records": [
+    { "id": "h1", "title": "Morning Run", "status": "idle", "tag": "health", "notes": "" },
+    { "id": "h2", "title": "Read 30 min", "status": "idle", "tag": "growth", "notes": "" },
+    { "id": "h3", "title": "Drink Water", "status": "done", "tag": "health", "notes": "" },
+    { "id": "h4", "title": "Call Family", "status": "idle", "tag": "relationships", "notes": "" },
+    { "id": "h5", "title": "Plan Tomorrow", "status": "idle", "tag": "productivity", "notes": "" }
+  ],
+  "preferences": {
+    "activeRoute": "record-operations"
+  }
+}
