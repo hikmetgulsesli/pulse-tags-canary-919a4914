@@ -1,0 +1,738 @@
+[
+  {
+    "screenId": "c0bdee8920eb4cfbbcb7d90017cf82c8",
+    "screenTitle": "Status Board - Pulse Tags Canary",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 194
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 198
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 202
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 220
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 223
+      },
+      {
+        "type": "button",
+        "label": "New Record",
+        "line": 235
+      },
+      {
+        "type": "button",
+        "label": "Reset",
+        "line": 309
+      },
+      {
+        "type": "button",
+        "label": "Copy Sum",
+        "line": 310
+      },
+      {
+        "type": "input",
+        "label": "Filter records...",
+        "inputType": "text",
+        "placeholder": "Filter records...",
+        "line": 232
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 194
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 198
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 202
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 220
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 223
+      },
+      {
+        "type": "button",
+        "label": "New Record",
+        "line": 235
+      },
+      {
+        "type": "button",
+        "label": "Reset",
+        "line": 309
+      },
+      {
+        "type": "button",
+        "label": "Copy Sum",
+        "line": 310
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Filter records...",
+        "inputType": "text",
+        "placeholder": "Filter records...",
+        "line": 232
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 9,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "9677e13419034a2c8cc46185cd5cc6e8",
+    "screenTitle": "Record Editor - Pulse Tags Canary",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 228
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 232
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 236
+      },
+      {
+        "type": "button",
+        "label": "Back to Operations",
+        "line": 206
+      },
+      {
+        "type": "button",
+        "label": "Settings",
+        "line": 212
+      },
+      {
+        "type": "button",
+        "label": "Account",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "Back",
+        "line": 256
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 365
+      },
+      {
+        "type": "button",
+        "label": "Record",
+        "line": 368
+      },
+      {
+        "type": "input",
+        "label": "e.g., Morning Run",
+        "inputType": "text",
+        "placeholder": "e.g., Morning Run",
+        "line": 288
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 301
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 308
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 315
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 322
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 336
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 342
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 348
+      },
+      {
+        "type": "input",
+        "label": "Additional context or specific constraints...",
+        "inputType": "textarea",
+        "placeholder": "Additional context or specific constraints...",
+        "line": 361
+      },
+      {
+        "type": "form",
+        "label": "form",
+        "line": 280
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 228
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 232
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 236
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Back to Operations",
+        "line": 206
+      },
+      {
+        "type": "button",
+        "label": "Settings",
+        "line": 212
+      },
+      {
+        "type": "button",
+        "label": "Account",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "Back",
+        "line": 256
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 365
+      },
+      {
+        "type": "button",
+        "label": "Record",
+        "line": 368
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "e.g., Morning Run",
+        "inputType": "text",
+        "placeholder": "e.g., Morning Run",
+        "line": 288
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 301
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 308
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 315
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 322
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 336
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 342
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 348
+      },
+      {
+        "type": "input",
+        "label": "Additional context or specific constraints...",
+        "inputType": "textarea",
+        "placeholder": "Additional context or specific constraints...",
+        "line": 361
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 19,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "31efe84caabf492a814d8fc04b004ae7",
+    "screenTitle": "Insights - Pulse Tags Canary",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 116
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 121
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 126
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 140
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 143
+      },
+      {
+        "type": "button",
+        "label": "Filter Insights",
+        "line": 157
+      },
+      {
+        "type": "button",
+        "label": "Export Summary",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 173
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 116
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 121
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 126
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 140
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 143
+      },
+      {
+        "type": "button",
+        "label": "Filter Insights",
+        "line": 157
+      },
+      {
+        "type": "button",
+        "label": "Export Summary",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 173
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 8,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "e9562d6e9e654963b9ccfb93aaedb8ac",
+    "screenTitle": "Record Operations - Pulse Tags Canary",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 134
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 141
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 147
+      },
+      {
+        "type": "link",
+        "label": "Ops",
+        "href": "#",
+        "line": 365
+      },
+      {
+        "type": "link",
+        "label": "Board",
+        "href": "#",
+        "line": 369
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 373
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "search",
+        "line": 172
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 175
+      },
+      {
+        "type": "button",
+        "label": "Create Habit",
+        "line": 186
+      },
+      {
+        "type": "button",
+        "label": "filter_list",
+        "line": 245
+      },
+      {
+        "type": "button",
+        "label": "Retry",
+        "line": 261
+      },
+      {
+        "type": "button",
+        "label": "Done",
+        "line": 271
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 277
+      },
+      {
+        "type": "button",
+        "label": "Idle",
+        "line": 287
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 293
+      },
+      {
+        "type": "button",
+        "label": "Idle",
+        "line": 303
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 309
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 322
+      },
+      {
+        "type": "button",
+        "label": "Delete Record",
+        "line": 353
+      },
+      {
+        "type": "button",
+        "label": "getState",
+        "line": 360
+      },
+      {
+        "type": "button",
+        "label": "reset",
+        "line": 360
+      },
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 184
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 234
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 239
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Record Operations",
+        "href": "#",
+        "line": 134
+      },
+      {
+        "type": "link",
+        "label": "Status Board",
+        "href": "#",
+        "line": 141
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 147
+      },
+      {
+        "type": "link",
+        "label": "Ops",
+        "href": "#",
+        "line": 365
+      },
+      {
+        "type": "link",
+        "label": "Board",
+        "href": "#",
+        "line": 369
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 373
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 161
+      },
+      {
+        "type": "button",
+        "label": "search",
+        "line": 172
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 175
+      },
+      {
+        "type": "button",
+        "label": "Create Habit",
+        "line": 186
+      },
+      {
+        "type": "button",
+        "label": "filter_list",
+        "line": 245
+      },
+      {
+        "type": "button",
+        "label": "Retry",
+        "line": 261
+      },
+      {
+        "type": "button",
+        "label": "Done",
+        "line": 271
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 277
+      },
+      {
+        "type": "button",
+        "label": "Idle",
+        "line": 287
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 293
+      },
+      {
+        "type": "button",
+        "label": "Idle",
+        "line": 303
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 309
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 322
+      },
+      {
+        "type": "button",
+        "label": "Delete Record",
+        "line": 353
+      },
+      {
+        "type": "button",
+        "label": "getState",
+        "line": 360
+      },
+      {
+        "type": "button",
+        "label": "reset",
+        "line": 360
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 184
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 234
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 239
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 25,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
