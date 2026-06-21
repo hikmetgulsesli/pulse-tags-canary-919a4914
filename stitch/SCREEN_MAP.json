@@ -1,0 +1,38 @@
+[
+  {
+    "screenId": "c0bdee8920eb4cfbbcb7d90017cf82c8",
+    "name": "Status Board - Pulse Tags Canary",
+    "type": "app-screen",
+    "description": "Status Board - Pulse Tags Canary screen",
+    "surfaceIds": [
+      "SURF_STATUS_BOARD"
+    ]
+  },
+  {
+    "screenId": "9677e13419034a2c8cc46185cd5cc6e8",
+    "name": "Record Editor - Pulse Tags Canary",
+    "type": "form",
+    "description": "Record Editor - Pulse Tags Canary screen",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "31efe84caabf492a814d8fc04b004ae7",
+    "name": "Insights - Pulse Tags Canary",
+    "type": "app-screen",
+    "description": "Insights - Pulse Tags Canary screen",
+    "surfaceIds": [
+      "SURF_INSIGHTS"
+    ]
+  },
+  {
+    "screenId": "e9562d6e9e654963b9ccfb93aaedb8ac",
+    "name": "Record Operations - Pulse Tags Canary",
+    "type": "app-screen",
+    "description": "Record Operations - Pulse Tags Canary screen",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  }
+]

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Record Editor - Pulse Tags Canary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#656d84",
+                      "secondary-fixed": "#d3e4fe",
+                      "on-surface": "#191c1e",
+                      "background": "#f7f9fb",
+                      "tertiary-fixed": "#dae2fd",
+                      "on-tertiary-fixed": "#131b2e",
+                      "error": "#ba1a1a",
+                      "inverse-on-surface": "#eff1f3",
+                      "inverse-surface": "#2d3133",
+                      "on-tertiary-fixed-variant": "#3f465c",
+                      "on-background": "#191c1e",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary-container": "#54647a",
+                      "primary": "#004ac6",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "surface-bright": "#f7f9fb",
+                      "surface-container-low": "#f2f4f6",
+                      "on-primary-fixed": "#00174b",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#4d556b",
+                      "surface-variant": "#e0e3e5",
+                      "surface": "#f7f9fb",
+                      "tertiary-fixed-dim": "#bec6e0",
+                      "outline": "#737686",
+                      "on-secondary-fixed": "#0b1c30",
+                      "surface-container": "#eceef0",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#2563eb",
+                      "on-surface-variant": "#434655",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "secondary": "#505f76",
+                      "on-primary": "#ffffff",
+                      "on-primary-container": "#eeefff",
+                      "on-error": "#ffffff",
+                      "outline-variant": "#c3c6d7",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "on-tertiary-container": "#eef0ff",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#dbe1ff",
+                      "surface-tint": "#0053db",
+                      "surface-container-high": "#e6e8ea",
+                      "inverse-primary": "#b4c5ff",
+                      "secondary-container": "#d0e1fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "sm": "8px",
+                      "unit": "4px",
+                      "lg": "24px",
+                      "margin-desktop": "40px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "gutter": "16px",
+                      "xl": "32px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "display": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-md": [
+                              "JetBrains Mono"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "10px",
+                              {
+                                      "lineHeight": "14px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom scrollbar for minimal look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e0e3e5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c3c6d7;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- Mobile Top App Bar (Hidden on Desktop) -->
+<header class="flex justify-between items-center px-margin-mobile py-sm w-full sticky top-0 z-50 bg-background md:hidden border-b border-outline-variant shadow-none">
+<div class="flex items-center gap-sm">
+<button aria-label="Back to Operations" class="p-unit text-secondary active:scale-95 duration-100">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-display text-headline-sm font-bold text-primary">Pulse Tags Canary</h1>
+</div>
+<div class="flex items-center gap-unit">
+<button aria-label="Settings" class="p-unit text-secondary active:scale-95 duration-100 hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<button aria-label="Account" class="p-unit text-secondary active:scale-95 duration-100 hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar (Hidden on Mobile) -->
+<nav class="hidden md:flex flex-col h-screen w-64 p-md gap-sm bg-surface-container-lowest border-r border-outline-variant shadow-none sticky top-0 z-40 shrink-0">
+<div class="mb-lg px-unit">
+<h1 class="font-display text-headline-md font-bold text-primary">Pulse Tags</h1>
+<p class="font-body-sm text-body-sm text-secondary mt-unit">Habit Tracking Board</p>
+</div>
+<div class="flex flex-col gap-unit flex-grow">
+<!-- Active Tab -->
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container text-on-secondary-container rounded-full active:scale-98 transition-transform font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined fill-icon" data-icon="edit_note" data-weight="fill">edit_note</span>
+                Record Operations
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-surface-container-high transition-all rounded-full active:scale-98 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+                Status Board
+            </a>
+<a class="flex items-center gap-md px-md py-sm text-secondary hover:bg-surface-container-high transition-all rounded-full active:scale-98 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Insights
+            </a>
+</div>
+<div class="mt-auto pt-lg border-t border-outline-variant/50 px-unit flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A minimalist, highly stylized geometric avatar profile picture representing a user in a clean, modern digital interface. The avatar uses cool tones of deep blue and crisp white, exuding a professional, focused, and calm aesthetic typical of high-end data tools." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeDJJaBfnlIYe887B7SP2Mmhs0yF-PD8w6XExbMiHbLE2-nd4R1j01LI5O_OMhlrzKa-yZ-aExneOFqYYndL1qIdax2op5q81tspnZMO_yyzms9aBqKzAPh8uyBXXTXKcp8Fm-cmqIwY9YeJLQIxY7WI5V4V9ofTQg_W44533F9UPoLmuGZ4mvTFAVC5Y0bwhqToSDAjZXjgNB5o0hj22JQ8VqaxVTBnX7SGveN58-_0pGZrDy9E7zuUQC_PfH60s2bUAuTikaZz8"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Operator</span>
+<span class="font-label-sm text-label-sm text-secondary">ID: 8492-X</span>
+</div>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col h-[calc(100vh-56px)] md:h-screen overflow-y-auto bg-surface relative">
+<!-- Desktop Header for Canvas area -->
+<header class="hidden md:flex justify-between items-center px-margin-desktop py-lg w-full sticky top-0 z-30 bg-surface/90 backdrop-blur-sm border-b border-outline-variant/30">
+<div class="flex items-center gap-sm">
+<button aria-label="Back" class="p-unit text-secondary hover:text-on-surface hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant mx-unit"></div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Record Editor</h2>
+</div>
+<div class="flex items-center gap-sm opacity-0 transition-opacity duration-300" id="unsaved-indicator">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-tertiary">Unsaved changes</span>
+</div>
+</header>
+<div class="flex-1 p-margin-mobile md:p-margin-desktop max-w-3xl mx-auto w-full">
+<!-- Mobile Header Area -->
+<div class="md:hidden mb-lg flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Record Editor</h2>
+<p class="font-body-sm text-body-sm text-secondary mt-unit">Create or modify habit tracking parameters.</p>
+</div>
+<div class="flex items-center gap-xs opacity-0 transition-opacity duration-300 pb-1" id="unsaved-indicator-mobile">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+</div>
+<!-- Form Container -->
+<div class="bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-lg md:p-xl flex flex-col gap-lg shadow-sm">
+<form class="flex flex-col gap-lg" id="record-form">
+<!-- Habit Name (Required) -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-md text-label-md text-on-surface flex items-center gap-xs" for="habit-name">
+                            Habit Designation
+                            <span class="text-error">*</span>
+</label>
+<div class="relative group">
+<input class="w-full bg-surface text-on-surface font-body-md text-body-md px-md py-sm rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow placeholder:text-secondary-fixed-dim" id="habit-name" name="habit-name" placeholder="e.g., Morning Run" required="" type="text"/>
+<!-- Inline Error (Hidden by default) -->
+<div class="hidden absolute -bottom-5 left-0 flex items-center gap-xs text-error font-label-sm text-label-sm" id="name-error">
+<span class="material-symbols-outlined text-[14px]">error</span>
+<span>Designation is required.</span>
+</div>
+</div>
+</div>
+<!-- Category Selection (Grid layout for density) -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-md text-label-md text-on-surface">Category</label>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm">
+<label class="cursor-pointer relative">
+<input checked="" class="peer sr-only" name="category" type="radio" value="health"/>
+<div class="px-sm py-sm rounded-lg border border-outline-variant bg-surface text-center font-body-sm text-body-sm text-secondary peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container hover:bg-surface-container transition-colors flex flex-col items-center gap-unit">
+<span class="material-symbols-outlined text-[20px]">monitor_heart</span>
+                                    Health
+                                </div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="category" type="radio" value="work"/>
+<div class="px-sm py-sm rounded-lg border border-outline-variant bg-surface text-center font-body-sm text-body-sm text-secondary peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container hover:bg-surface-container transition-colors flex flex-col items-center gap-unit">
+<span class="material-symbols-outlined text-[20px]">work</span>
+                                    Work
+                                </div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="category" type="radio" value="learning"/>
+<div class="px-sm py-sm rounded-lg border border-outline-variant bg-surface text-center font-body-sm text-body-sm text-secondary peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container hover:bg-surface-container transition-colors flex flex-col items-center gap-unit">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+                                    Learning
+                                </div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" name="category" type="radio" value="mind"/>
+<div class="px-sm py-sm rounded-lg border border-outline-variant bg-surface text-center font-body-sm text-body-sm text-secondary peer-checked:bg-primary-container peer-checked:text-on-primary-container peer-checked:border-primary-container hover:bg-surface-container transition-colors flex flex-col items-center gap-unit">
+<span class="material-symbols-outlined text-[20px]">self_improvement</span>
+                                    Mind
+                                </div>
+</label>
+</div>
+</div>
+<div class="h-[1px] w-full bg-outline-variant/40 my-sm"></div>
+<!-- Frequency (Segmented Control style) -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-md text-label-md text-on-surface">Frequency Cycle</label>
+<div class="flex bg-surface-container-low rounded-lg p-unit border border-outline-variant/50">
+<label class="flex-1 cursor-pointer">
+<input checked="" class="peer sr-only" name="frequency" type="radio" value="daily"/>
+<div class="text-center py-xs font-label-md text-label-md text-secondary rounded-md peer-checked:bg-surface-container-lowest peer-checked:text-on-surface peer-checked:shadow-sm transition-all">
+                                    Daily
+                                </div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="frequency" type="radio" value="weekly"/>
+<div class="text-center py-xs font-label-md text-label-md text-secondary rounded-md peer-checked:bg-surface-container-lowest peer-checked:text-on-surface peer-checked:shadow-sm transition-all">
+                                    Weekly
+                                </div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="frequency" type="radio" value="monthly"/>
+<div class="text-center py-xs font-label-md text-label-md text-secondary rounded-md peer-checked:bg-surface-container-lowest peer-checked:text-on-surface peer-checked:shadow-sm transition-all">
+                                    Monthly
+                                </div>
+</label>
+</div>
+</div>
+<!-- Description (Optional) -->
+<div class="flex flex-col gap-unit">
+<div class="flex justify-between items-end">
+<label class="font-label-md text-label-md text-on-surface" for="habit-desc">Operational Notes</label>
+<span class="font-label-sm text-label-sm text-outline">Optional</span>
+</div>
+<textarea class="w-full bg-surface text-on-surface font-body-sm text-body-sm px-md py-sm rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow resize-none placeholder:text-secondary-fixed-dim" id="habit-desc" name="habit-desc" placeholder="Additional context or specific constraints..." rows="3"></textarea>
+</div>
+<!-- Action Area -->
+<div class="flex flex-col-reverse md:flex-row justify-end items-center gap-md mt-lg pt-lg border-t border-outline-variant/40">
+<button class="w-full md:w-auto px-lg py-sm rounded-lg border border-outline text-secondary font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-1" id="ACT_CANCEL_EDIT" type="button">
+                            Cancel
+                        </button>
+<button class="w-full md:w-auto px-lg py-sm rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-on-primary-fixed-variant transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 flex items-center justify-center gap-xs" id="ACT_SAVE_RECORD" type="submit">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                            Save Record
+                        </button>
+</div>
+</form>
+</div>
+<!-- Padding at bottom for scrolling clearance -->
+<div class="h-lg md:h-xl"></div>
+</div>
+</main>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('record-form');
+            const nameInput = document.getElementById('habit-name');
+            const nameError = document.getElementById('name-error');
+            const inputs = form.querySelectorAll('input, textarea');
+            const unsavedIndicator = document.getElementById('unsaved-indicator');
+            const unsavedIndicatorMobile = document.getElementById('unsaved-indicator-mobile');
+            
+            let isDirty = false;
+
+            // Track changes to show unsaved indicator
+            inputs.forEach(input => {
+                input.addEventListener('change', () => {
+                    if (!isDirty) {
+                        isDirty = true;
+                        unsavedIndicator.classList.remove('opacity-0');
+                        unsavedIndicatorMobile.classList.remove('opacity-0');
+                    }
+                });
+                
+                input.addEventListener('input', () => {
+                    if (input === nameInput) {
+                        if (nameInput.value.trim() !== '') {
+                            nameInput.classList.remove('border-error', 'focus:ring-error');
+                            nameInput.classList.add('border-outline-variant', 'focus:ring-primary');
+                            nameError.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+
+            // Form validation and submission simulation
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                if (nameInput.value.trim() === '') {
+                    nameInput.classList.remove('border-outline-variant', 'focus:ring-primary');
+                    nameInput.classList.add('border-error', 'focus:ring-error');
+                    nameError.classList.remove('hidden');
+                    nameInput.focus();
+                    return;
+                }
+
+                // Simulate save success
+                const submitBtn = document.getElementById('ACT_SAVE_RECORD');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span> Saved';
+                submitBtn.classList.remove('bg-primary', 'hover:bg-on-primary-fixed-variant');
+                submitBtn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+                
+                isDirty = false;
+                unsavedIndicator.classList.add('opacity-0');
+                unsavedIndicatorMobile.classList.add('opacity-0');
+
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.classList.add('bg-primary', 'hover:bg-on-primary-fixed-variant');
+                    submitBtn.classList.remove('bg-tertiary-container', 'text-on-tertiary-container');
+                    // In a real app, this would route back to operations
+                }, 1500);
+            });
+        });
+    </script>
+</body></html>

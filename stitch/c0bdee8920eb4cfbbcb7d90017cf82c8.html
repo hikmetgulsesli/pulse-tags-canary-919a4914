@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Status Board - Pulse Tags Canary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-container": "#656d84",
+                "secondary-fixed": "#d3e4fe",
+                "on-surface": "#191c1e",
+                "background": "#f7f9fb",
+                "tertiary-fixed": "#dae2fd",
+                "on-tertiary-fixed": "#131b2e",
+                "error": "#ba1a1a",
+                "inverse-on-surface": "#eff1f3",
+                "inverse-surface": "#2d3133",
+                "on-tertiary-fixed-variant": "#3f465c",
+                "on-background": "#191c1e",
+                "surface-dim": "#d8dadc",
+                "on-secondary-container": "#54647a",
+                "primary": "#004ac6",
+                "primary-fixed-dim": "#b4c5ff",
+                "surface-bright": "#f7f9fb",
+                "surface-container-low": "#f2f4f6",
+                "on-primary-fixed": "#00174b",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-highest": "#e0e3e5",
+                "on-error-container": "#93000a",
+                "tertiary": "#4d556b",
+                "surface-variant": "#e0e3e5",
+                "surface": "#f7f9fb",
+                "tertiary-fixed-dim": "#bec6e0",
+                "outline": "#737686",
+                "on-secondary-fixed": "#0b1c30",
+                "surface-container": "#eceef0",
+                "on-secondary": "#ffffff",
+                "primary-container": "#2563eb",
+                "on-surface-variant": "#434655",
+                "secondary-fixed-dim": "#b7c8e1",
+                "secondary": "#505f76",
+                "on-primary": "#ffffff",
+                "on-primary-container": "#eeefff",
+                "on-error": "#ffffff",
+                "outline-variant": "#c3c6d7",
+                "error-container": "#ffdad6",
+                "on-primary-fixed-variant": "#003ea8",
+                "on-tertiary-container": "#eef0ff",
+                "on-secondary-fixed-variant": "#38485d",
+                "on-tertiary": "#ffffff",
+                "primary-fixed": "#dbe1ff",
+                "surface-tint": "#0053db",
+                "surface-container-high": "#e6e8ea",
+                "inverse-primary": "#b4c5ff",
+                "secondary-container": "#d0e1fb"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "sm": "8px",
+                "unit": "4px",
+                "lg": "24px",
+                "margin-desktop": "40px",
+                "xs": "4px",
+                "md": "16px",
+                "gutter": "16px",
+                "xl": "32px"
+        },
+        "fontFamily": {
+                "body-sm": [
+                        "Hanken Grotesk"
+                ],
+                "display": [
+                        "Hanken Grotesk"
+                ],
+                "headline-md": [
+                        "Hanken Grotesk"
+                ],
+                "body-md": [
+                        "Hanken Grotesk"
+                ],
+                "headline-sm": [
+                        "Hanken Grotesk"
+                ],
+                "label-md": [
+                        "JetBrains Mono"
+                ],
+                "label-sm": [
+                        "JetBrains Mono"
+                ],
+                "body-lg": [
+                        "Hanken Grotesk"
+                ]
+        },
+        "fontSize": {
+                "body-sm": [
+                        "13px",
+                        {
+                                "lineHeight": "18px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-sm": [
+                        "18px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "label-sm": [
+                        "10px",
+                        {
+                                "lineHeight": "14px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+    }
+  }
+</script>
+<style>
+  body {
+    background-color: theme('colors.background');
+    color: theme('colors.on-background');
+  }
+  .ghost-btn {
+    border: 1px solid transparent;
+  }
+  .ghost-btn:hover {
+    border-color: theme('colors.outline-variant');
+  }
+</style>
+</head>
+<body class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen left-0 border-r border-outline-variant bg-surface-container-lowest p-md gap-sm w-64 z-40">
+<div class="mb-lg">
+<h1 class="font-display text-headline-md font-bold text-primary">Pulse Tags</h1>
+<p class="font-body-md text-body-md text-secondary mt-xs">Habit Tracking Board</p>
+</div>
+<div class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-sm px-sm py-sm rounded-full text-secondary hover:bg-surface-container-high transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined font-label-md text-label-md" style="font-variation-settings: 'FILL' 0;">edit_note</span>
+<span class="font-body-md text-body-md">Record Operations</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-full bg-secondary-container text-on-secondary-container transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined font-label-md text-label-md" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-body-md text-body-md font-bold">Status Board</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm rounded-full text-secondary hover:bg-surface-container-high transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined font-label-md text-label-md" style="font-variation-settings: 'FILL' 0;">analytics</span>
+<span class="font-body-md text-body-md">Insights</span>
+</a>
+</div>
+<div class="mt-auto flex items-center gap-sm pt-sm border-t border-outline-variant">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up, high-quality, professional headshot of a person looking directly at the camera. The lighting is soft and even, typical of a modern corporate or tech profile picture. The background is a plain, light grey wall to ensure the subject stands out. The mood is approachable yet competent, fitting for a user avatar in a sleek web application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR6u5fIRPbMzn3dyRSXvvRIuGcQB82X70mKBShORKucU3xFqtnLGGJTWLzyzM7GV1boz_sM7evRK_plHmkHLghqw3cZwBTOpPRbDrEuBVQC_xjuo_hRnnlWGhwzbJoVYwAD0eazJexIRjC8PwYAgTL7EBBimeUViLorAfBoQ0sabGLwxXHluNcWIGqMK48ctD8ztmQts57KlS6iQvyd_wipOpZB20iigp2O_FBcUh0Q4iL3P1qLHiPQ3n91RDMQlWx92jM4csoZ74"/>
+</div>
+<span class="font-label-md text-label-md text-on-surface">User Profile</span>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar (Mobile Only) -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile py-sm w-full sticky top-0 z-50 bg-background border-b border-outline-variant">
+<span class="font-display text-display font-bold text-primary">Pulse Tags Canary</span>
+<div class="flex gap-sm">
+<button class="p-xs text-secondary hover:bg-surface-container rounded-full active:scale-95 duration-100">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-xs text-secondary hover:bg-surface-container rounded-full active:scale-95 duration-100">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Toolbar -->
+<div class="px-margin-desktop py-md flex flex-col sm:flex-row justify-between items-start sm:items-center gap-md border-b border-outline-variant bg-surface-container-lowest shrink-0">
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-secondary font-label-md text-label-md">search</span>
+<input class="w-full pl-xl pr-sm py-xs rounded-DEFAULT border-outline-variant bg-surface font-body-sm text-body-sm text-on-surface focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none transition-shadow" placeholder="Filter records..." type="text"/>
+</div>
+<div class="flex gap-sm w-full sm:w-auto">
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-xs px-md py-xs rounded-DEFAULT bg-primary text-on-primary font-label-md text-label-md active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-label-md">add</span>
+          New Record
+        </button>
+</div>
+</div>
+<!-- Board Area -->
+<div class="flex-1 overflow-x-auto overflow-y-hidden p-margin-desktop bg-surface">
+<div class="flex h-full gap-lg min-w-max">
+<!-- Column: Idle -->
+<div class="w-72 flex flex-col h-full">
+<div class="flex items-center gap-xs mb-sm">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<h2 class="font-label-md text-label-md text-secondary uppercase tracking-wider">Idle</h2>
+<span class="ml-auto font-label-sm text-label-sm text-outline px-xs py-[2px] bg-surface-container-highest rounded-DEFAULT">3</span>
+</div>
+<div class="flex-1 overflow-y-auto flex flex-col gap-sm pb-lg pr-xs" id="col-idle">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-DEFAULT p-sm cursor-grab hover:border-primary-fixed-dim transition-colors relative group">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-variant px-1 rounded">Daily Meditation</span>
+<span class="font-label-sm text-label-sm text-error bg-error-container px-1 rounded flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[10px]">arrow_upward</span> High
+                </span>
+</div>
+<h3 class="font-body-md text-body-md text-on-surface mb-xs leading-tight">10 minutes mindfulness</h3>
+<div class="flex items-center justify-between mt-sm">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A tiny, high-quality avatar portrait of a person. The lighting is even and professional, set against a light grey background to ensure the face is clearly visible even at a very small scale. The mood is neutral and functional, suitable for a web application interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAovkzyBr_GSNnlqQASu2dI1y_UESfToJOpatjXYCcOWyhoTObxaePREdsCN3yVl6Ev0cP-ULftEN7wCu8yL6dAur5JDsG10vzxZpSr9SPDbtc-figdxQuCi6u-iebX6HBaBOaZoJkNApBIiB0CfL8jv16d6lIcUOQu7G9ZscdUkwTYhws9xK4FGQqC_8uPW_q_CE9O9pOvCf4bTOm1LHVGI10ran2VDXn8Qe6f-z6uYaGvgd4Z4M_JKfVu4q30_uNUFTCYB_4XBBk"/>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">0 days</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-DEFAULT p-sm cursor-grab hover:border-primary-fixed-dim transition-colors relative group">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-variant px-1 rounded">Read</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-variant px-1 rounded flex items-center gap-[2px]">
+                   Medium
+                </span>
+</div>
+<h3 class="font-body-md text-body-md text-on-surface mb-xs leading-tight">Read 20 pages of fiction</h3>
+<div class="flex items-center justify-between mt-sm">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A tiny, high-quality avatar portrait of a person. The lighting is even and professional, set against a light grey background to ensure the face is clearly visible even at a very small scale. The mood is neutral and functional, suitable for a web application interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF3XkWwCKA-8IJkO9fmnocWLRqdgsTyOFyXr02SmMb6Lgc18Z5-BIqdIIHa8eEy5QY5rnVKnLMcmZ-0uZZ_2-u9aAA5JVV3oR-T1BaviDECuuw9jcfscgxPZxjr6OrVqwGSXFiO5FjBgLxmdiskmIuzZ0XTyNTQ9LZwSBWVHgrrYLM702Pbus7lRjgWepXHSB-4OF-xOt44fGvHIpLjxAmUsdIXpZ2AqmmKRUc5aR8lEiOnQXVZtcsJZ3iBuqQizNpnafTYhJttkY"/>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-error">3 days since</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: In Progress -->
+<div class="w-72 flex flex-col h-full">
+<div class="flex items-center gap-xs mb-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<h2 class="font-label-md text-label-md text-primary uppercase tracking-wider">In Progress</h2>
+<span class="ml-auto font-label-sm text-label-sm text-primary px-xs py-[2px] bg-primary-container text-on-primary-container rounded-DEFAULT">1</span>
+</div>
+<div class="flex-1 overflow-y-auto flex flex-col gap-sm pb-lg pr-xs" id="col-in-progress">
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-primary-fixed-dim rounded-DEFAULT p-sm cursor-grab hover:border-primary transition-colors relative group">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-variant px-1 rounded">Exercise</span>
+<span class="font-label-sm text-label-sm text-error bg-error-container px-1 rounded flex items-center gap-[2px]">
+<span class="material-symbols-outlined text-[10px]">arrow_upward</span> High
+                </span>
+</div>
+<h3 class="font-body-md text-body-md text-on-surface mb-xs leading-tight">Strength training session</h3>
+<!-- Inline Action -->
+<div class="mt-sm flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="ghost-btn font-label-sm text-label-sm text-secondary px-2 py-1 rounded-sm bg-surface-container-lowest">Reset</button>
+<button class="ghost-btn font-label-sm text-label-sm text-primary px-2 py-1 rounded-sm bg-surface-container-lowest">Copy Sum</button>
+</div>
+<div class="flex items-center justify-between mt-xs border-t border-surface-variant pt-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A tiny, high-quality avatar portrait of a person. The lighting is even and professional, set against a light grey background to ensure the face is clearly visible even at a very small scale. The mood is neutral and functional, suitable for a web application interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVRKHvqllWeDn1RdyF4Cg-JqYEGG0SCx5FJcQoQT5OdyBBhxgxU0-rIanw7DDkVEeY-Ypfuc91CvivBjTF7J2k4Niu_LZLOCjR93UB06fzrdutUOdNxmA8TQTVJYqjQOJXCR4f9tj1PG5SWqWFuGAFN32mapXDlA7Vxk55x6FWjB7DzetnFyunigWjtc1U08hoWx9No7azvc5X8iqaFgtlf4eVK17JyZL6qdIzcoHjriK4cTrf4gsbL2AkjT56k3x4ahv2-ue1fCo"/>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Active</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Done -->
+<div class="w-72 flex flex-col h-full">
+<div class="flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-label-md text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<h2 class="font-label-md text-label-md text-secondary uppercase tracking-wider">Done</h2>
+<span class="ml-auto font-label-sm text-label-sm text-outline px-xs py-[2px] bg-surface-container-highest rounded-DEFAULT">2</span>
+</div>
+<div class="flex-1 overflow-y-auto flex flex-col gap-sm pb-lg pr-xs" id="col-done">
+<!-- Card 4 Done State -->
+<div class="bg-primary-container border border-outline-variant rounded-DEFAULT p-sm opacity-80 cursor-grab relative group">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-sm text-label-sm text-on-primary-container bg-surface-container-highest px-1 rounded line-through">Water Intake</span>
+</div>
+<h3 class="font-body-md text-body-md text-on-primary-container mb-xs leading-tight line-through">Drink 2L water</h3>
+<div class="flex items-center justify-between mt-sm">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-container-high overflow-hidden opacity-50">
+<img class="w-full h-full object-cover" data-alt="A tiny, high-quality avatar portrait of a person. The lighting is even and professional, set against a light grey background to ensure the face is clearly visible even at a very small scale. The mood is neutral and functional, suitable for a web application interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWFtsXAp_3Ezo4bqTy6lw39c1bGVHe60E7BNkzA_GZfPLU8Ftm42FnCtQSYZmziPjfWBAl1LFG8ddCvFnMBFA8dCYFJFvx-yRpw_lctkPmb5tAcnJHqV38zAKk0CF-e9ARzCiZXm91jXShWh41gWUxto3vlfqRnBAPKbGh7ZLk3YlZs340almbK28rAVtTXA4XsvqkckA11Ytldwt3ptutGvANh1mr3zJ-d-KnlIUJE-mBCzwXeYnaaQKO3iMOev4qNeeadbIBKqw"/>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-primary-container">Done</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pulse Tags Canary - Record Operations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#656d84",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-surface": "#191c1e",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed": "#dae2fd",
+                        "on-tertiary-fixed": "#131b2e",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eff1f3",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-background": "#191c1e",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-container": "#54647a",
+                        "primary": "#004ac6",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-fixed": "#00174b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#4d556b",
+                        "surface-variant": "#e0e3e5",
+                        "surface": "#f7f9fb",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "outline": "#737686",
+                        "on-secondary-fixed": "#0b1c30",
+                        "surface-container": "#eceef0",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-surface-variant": "#434655",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "secondary": "#505f76",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#eeefff",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c3c6d7",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-tertiary-container": "#eef0ff",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-tint": "#0053db",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-container": "#d0e1fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "lg": "24px",
+                        "margin-desktop": "40px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "gutter": "16px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Hanken Grotesk"],
+                        "display": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "label-md": ["JetBrains Mono"],
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .shimmer {
+            background: linear-gradient(90deg, theme('colors.surface-container-highest') 25%, theme('colors.surface-container') 50%, theme('colors.surface-container-highest') 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full w-64 p-md gap-sm bg-surface-container-lowest border-r border-outline-variant flex-shrink-0 relative z-20">
+<div class="mb-lg px-sm">
+<h1 class="font-display text-headline-md font-bold text-primary tracking-tight">Pulse Tags</h1>
+<p class="font-body-sm text-secondary mt-xs">Habit Tracking Board</p>
+</div>
+<ul class="flex flex-col gap-unit flex-grow">
+<!-- Active: Record Operations -->
+<li>
+<a class="flex items-center gap-sm px-md py-sm bg-secondary-container text-on-secondary-container rounded-full active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined fill" data-icon="edit_note">edit_note</span>
+<span class="font-label-md text-label-md">Record Operations</span>
+</a>
+</li>
+<!-- Inactive -->
+<li>
+<a class="flex items-center gap-sm px-md py-sm text-secondary hover:bg-surface-container-high rounded-full transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-md text-label-md">Status Board</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm text-secondary hover:bg-surface-container-high rounded-full transition-all active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Insights</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto flex items-center gap-sm px-sm py-sm border-t border-outline-variant pt-md">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-md font-bold">
+                U
+            </div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">User Profile</span>
+<span class="font-label-sm text-label-sm text-secondary">Pro Plan</span>
+</div>
+<button class="ml-auto text-secondary hover:text-on-surface">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col h-full overflow-hidden relative bg-surface">
+<!-- TopAppBar (Mobile Only or Minimal Utility Bar on Desktop) -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile py-sm w-full sticky top-0 z-50 bg-background border-b border-outline-variant">
+<h1 class="font-display text-headline-sm font-bold text-primary">Pulse Tags Canary</h1>
+<div class="flex gap-sm">
+<button class="text-secondary hover:bg-surface-container p-unit rounded-full transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-secondary hover:bg-surface-container p-unit rounded-full transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Desktop Utility/Search Row -->
+<div class="hidden md:flex justify-between items-center px-margin-desktop py-md border-b border-outline-variant bg-surface-container-lowest sticky top-0 z-10">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface text-on-surface font-body-md pl-10 pr-4 py-2 rounded-lg border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:ring-offset-1 transition-shadow placeholder:text-outline" id="ACT_SEARCH_RECORDS" placeholder="Search records..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-label-md px-lg py-2 rounded-lg hover:bg-primary-fixed-variant transition-colors active:scale-95 flex items-center gap-unit shadow-sm" id="ACT_CREATE_RECORD">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Create Habit
+            </button>
+</div>
+<!-- Dashboard Content Area -->
+<div class="flex-grow overflow-y-auto p-margin-mobile md:p-margin-desktop flex flex-col gap-lg">
+<!-- Summary Metrics Bento -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-outline transition-colors">
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md text-secondary">Total Habits</h3>
+<span class="material-symbols-outlined text-tertiary" data-icon="list_alt">list_alt</span>
+</div>
+<div class="mt-lg flex items-baseline gap-unit">
+<span class="font-display text-display text-on-surface">12</span>
+<span class="font-body-sm text-secondary">active</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-outline transition-colors">
+<div class="flex justify-between items-start">
+<h3 class="font-label-md text-label-md text-secondary">Completion Rate</h3>
+<span class="material-symbols-outlined text-primary" data-icon="trending_up">trending_up</span>
+</div>
+<div class="mt-lg flex items-baseline gap-unit">
+<span class="font-display text-display text-on-surface">84%</span>
+<span class="font-label-sm text-primary bg-primary-fixed px-1 rounded inline-flex items-center"><span class="material-symbols-outlined text-[10px]" data-icon="arrow_upward">arrow_upward</span> 2%</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex flex-col justify-between hover:border-outline transition-colors relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 bg-gradient-to-br from-primary to-tertiary pointer-events-none"></div>
+<div class="flex justify-between items-start relative z-10">
+<h3 class="font-label-md text-label-md text-secondary">Current Streak</h3>
+<span class="material-symbols-outlined text-on-surface" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<div class="mt-lg flex items-baseline gap-unit relative z-10">
+<span class="font-display text-display text-on-surface">14</span>
+<span class="font-body-sm text-secondary">days</span>
+</div>
+</div>
+</section>
+<!-- Main Data Grid & Preview -->
+<div class="flex gap-lg flex-grow h-[600px]">
+<!-- Habit List -->
+<section class="flex-grow flex flex-col bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<!-- List Header/Filters -->
+<div class="p-sm border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<div class="flex gap-sm">
+<select class="bg-transparent border-none text-on-surface font-label-md text-label-md py-1 pl-2 pr-6 focus:ring-0 cursor-pointer">
+<option>All Categories</option>
+<option>Health</option>
+<option>Work</option>
+</select>
+<select class="bg-transparent border-none text-on-surface font-label-md text-label-md py-1 pl-2 pr-6 focus:ring-0 cursor-pointer">
+<option>All Status</option>
+<option>Pending</option>
+<option>Completed</option>
+</select>
+</div>
+<button class="text-secondary hover:text-on-surface p-1 rounded hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+<!-- List Column Headers -->
+<div class="grid grid-cols-[1fr_auto_auto_auto] gap-sm px-md py-xs border-b border-outline-variant bg-surface-container-lowest text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<div>Name</div>
+<div class="w-24 text-center">Status</div>
+<div class="w-32 text-right">Last Updated</div>
+<div class="w-16 text-center">Acts</div>
+</div>
+<!-- List Body -->
+<div class="overflow-y-auto flex-grow relative">
+<!-- Simulate Error Banner (Hidden by default, shown for example structure) -->
+<div class="hidden absolute top-0 left-0 right-0 bg-error-container text-on-error-container px-md py-sm flex justify-between items-center border-b border-error" id="errorBanner">
+<span class="font-label-md text-label-md flex items-center gap-xs"><span class="material-symbols-outlined text-[16px]" data-icon="error">error</span> Failed to load records.</span>
+<button class="font-label-sm uppercase hover:underline" id="ACT_RETRY_LOAD">Retry</button>
+</div>
+<ul class="flex flex-col">
+<!-- Row 1: Done State -->
+<li class="grid grid-cols-[1fr_auto_auto_auto] gap-sm px-md py-sm border-b border-surface-variant items-center hover:bg-surface-container-low cursor-pointer transition-colors group">
+<div class="flex items-center gap-sm">
+<div aria-hidden="true" class="w-2 h-2 rounded-full bg-primary"></div>
+<span class="font-body-md text-on-surface font-semibold">Morning Workout</span>
+</div>
+<div class="w-24 flex justify-center">
+<button class="bg-primary-container text-on-primary-container border border-primary px-2 py-1 rounded-md font-label-sm flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span> Done
+                                    </button>
+</div>
+<div class="w-32 text-right font-label-sm text-secondary">08:00 AM</div>
+<div class="w-16 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span></button>
+</div>
+</li>
+<!-- Row 2: Idle State -->
+<li class="grid grid-cols-[1fr_auto_auto_auto] gap-sm px-md py-sm border-b border-surface-variant items-center hover:bg-surface-container-low cursor-pointer transition-colors group bg-surface-container-lowest">
+<div class="flex items-center gap-sm">
+<div aria-hidden="true" class="w-2 h-2 rounded-full bg-surface-variant"></div>
+<span class="font-body-md text-on-surface">Drink 2L Water</span>
+</div>
+<div class="w-24 flex justify-center">
+<button class="bg-surface text-secondary border border-outline px-2 py-1 rounded-md font-label-sm flex items-center gap-xs hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[14px]" data-icon="radio_button_unchecked">radio_button_unchecked</span> Idle
+                                    </button>
+</div>
+<div class="w-32 text-right font-label-sm text-secondary">Yesterday</div>
+<div class="w-16 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span></button>
+</div>
+</li>
+<!-- Row 3: Idle State -->
+<li class="grid grid-cols-[1fr_auto_auto_auto] gap-sm px-md py-sm border-b border-surface-variant items-center hover:bg-surface-container-low cursor-pointer transition-colors group bg-surface-container-lowest">
+<div class="flex items-center gap-sm">
+<div aria-hidden="true" class="w-2 h-2 rounded-full bg-surface-variant"></div>
+<span class="font-body-md text-on-surface">Read 10 Pages</span>
+</div>
+<div class="w-24 flex justify-center">
+<button class="bg-surface text-secondary border border-outline px-2 py-1 rounded-md font-label-sm flex items-center gap-xs hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[14px]" data-icon="radio_button_unchecked">radio_button_unchecked</span> Idle
+                                    </button>
+</div>
+<div class="w-32 text-right font-label-sm text-secondary">--</div>
+<div class="w-16 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-secondary hover:text-primary"><span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span></button>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<!-- Details Panel (Preview) -->
+<aside class="hidden lg:flex w-80 flex-col bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-md border-b border-outline-variant bg-surface-container-low flex justify-between items-start">
+<div>
+<h2 class="font-headline-sm text-on-surface font-bold">Morning Workout</h2>
+<span class="font-label-sm text-secondary inline-block mt-xs border border-outline-variant rounded px-1">Health</span>
+</div>
+<button class="text-secondary hover:text-on-surface p-1 rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="p-md flex-grow overflow-y-auto">
+<div class="mb-md">
+<label class="font-label-sm text-secondary block mb-xs uppercase tracking-wider">Description</label>
+<p class="font-body-sm text-on-surface">30 minutes of cardio or weight training to start the day energized.</p>
+</div>
+<div class="mb-md">
+<label class="font-label-sm text-secondary block mb-xs uppercase tracking-wider">Current Streak</label>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="local_fire_department">local_fire_department</span>
+<span class="font-headline-sm text-on-surface">5 Days</span>
+</div>
+</div>
+<div class="mb-md">
+<label class="font-label-sm text-secondary block mb-xs uppercase tracking-wider">Recent History</label>
+<div class="flex gap-unit">
+<!-- Activity Graph Simulation -->
+<div class="w-4 h-8 bg-primary rounded-sm opacity-100" title="Today"></div>
+<div class="w-4 h-8 bg-primary rounded-sm opacity-80" title="Yesterday"></div>
+<div class="w-4 h-8 bg-primary rounded-sm opacity-60"></div>
+<div class="w-4 h-8 bg-primary rounded-sm opacity-40"></div>
+<div class="w-4 h-8 bg-primary rounded-sm opacity-100"></div>
+<div class="w-4 h-8 bg-surface-variant rounded-sm" title="Missed"></div>
+<div class="w-4 h-8 bg-primary rounded-sm opacity-80"></div>
+</div>
+</div>
+</div>
+<div class="p-md border-t border-outline-variant bg-surface flex justify-between">
+<button class="text-error font-label-md hover:underline">Delete Record</button>
+</div>
+</aside>
+</div>
+</div>
+<!-- Dev Hooks / Footer -->
+<footer class="text-center py-2 text-[10px] font-label-sm text-outline border-t border-surface-variant bg-background">
+            window.app hooks active | <button class="hover:text-primary" onclick="console.log('App State')">getState</button> | <button class="hover:text-primary" onclick="console.log('Resetting')">reset</button>
+</footer>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden flex justify-around items-center bg-surface-container-lowest border-t border-outline-variant py-sm sticky bottom-0 z-50 w-full pb-[calc(env(safe-area-inset-bottom)+8px)]">
+<a class="flex flex-col items-center text-primary gap-unit" href="#">
+<span class="material-symbols-outlined fill px-md py-1 bg-secondary-container rounded-full" data-icon="edit_note">edit_note</span>
+<span class="font-label-sm text-[10px]">Ops</span>
+</a>
+<a class="flex flex-col items-center text-secondary gap-unit hover:text-on-surface" href="#">
+<span class="material-symbols-outlined px-md py-1" data-icon="grid_view">grid_view</span>
+<span class="font-label-sm text-[10px]">Board</span>
+</a>
+<a class="flex flex-col items-center text-secondary gap-unit hover:text-on-surface" href="#">
+<span class="material-symbols-outlined px-md py-1" data-icon="analytics">analytics</span>
+<span class="font-label-sm text-[10px]">Insights</span>
+</a>
+</nav>
+</body></html>

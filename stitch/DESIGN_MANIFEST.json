@@ -1,0 +1,46 @@
+[
+  {
+    "screenId": "c0bdee8920eb4cfbbcb7d90017cf82c8",
+    "title": "Status Board - Pulse Tags Canary",
+    "htmlFile": "c0bdee8920eb4cfbbcb7d90017cf82c8.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzhiNmU0Nzc0MTllNTQzNjc4ZTRiMDQ4M2ZkYWMzMTU0EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM3MzM1NTQxMTc3OTk5MjI1NDE3&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pulse-tags-canary-919a4914/stitch/c0bdee8920eb4cfbbcb7d90017cf82c8.html",
+    "surfaceIds": [
+      "SURF_STATUS_BOARD"
+    ]
+  },
+  {
+    "screenId": "9677e13419034a2c8cc46185cd5cc6e8",
+    "title": "Record Editor - Pulse Tags Canary",
+    "htmlFile": "9677e13419034a2c8cc46185cd5cc6e8.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzY1YzBjNDFmMjgyMzRiYjNhZDM2ODdiYzdiZGY2N2VhEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM3MzM1NTQxMTc3OTk5MjI1NDE3&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pulse-tags-canary-919a4914/stitch/9677e13419034a2c8cc46185cd5cc6e8.html",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "31efe84caabf492a814d8fc04b004ae7",
+    "title": "Insights - Pulse Tags Canary",
+    "htmlFile": "31efe84caabf492a814d8fc04b004ae7.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzdiMGY1ZjQxYjIyMjRkZmFiNmRmNzM4NzgxNDQ1NDUwEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM3MzM1NTQxMTc3OTk5MjI1NDE3&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pulse-tags-canary-919a4914/stitch/31efe84caabf492a814d8fc04b004ae7.html",
+    "surfaceIds": [
+      "SURF_INSIGHTS"
+    ]
+  },
+  {
+    "screenId": "e9562d6e9e654963b9ccfb93aaedb8ac",
+    "title": "Record Operations - Pulse Tags Canary",
+    "htmlFile": "e9562d6e9e654963b9ccfb93aaedb8ac.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sX2UxODgxYTg4ODkyZTQ0MDJiZGRmYWZiNjY5MzEyYzUwEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhM3MzM1NTQxMTc3OTk5MjI1NDE3&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pulse-tags-canary-919a4914/stitch/e9562d6e9e654963b9ccfb93aaedb8ac.html",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  }
+]
